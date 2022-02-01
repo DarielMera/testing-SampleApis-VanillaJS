@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html>
-
-
 <head>
 <style>
 
 #content {
-	display: inline-flex;
+    display: inline-flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
@@ -17,13 +15,12 @@
     box-shadow: gray 2px 2px 1px 12px;    
 	}
 
-
 #id {      
     font-size: 1.2em;   
 	}
 
 #idWrap {
-	 display: flex;
+     display: flex;
      flex-direction: horizontal;
      justify-content: center;
      align-items: center;
@@ -35,8 +32,8 @@
 	}
 
 #wn {
-	font-size: 1em;
-	background-color: lightgray;  
+    font-size: 1em;
+    background-color: lightgray;  
     border-left: 8px solid red;
     border-right: 8px solid red;
     border-radius: 10%;
@@ -53,10 +50,9 @@
     height: 250px;    
 	}
 
-
 #rt {
     font-size: 1em;
-	background-color: lightgray; 
+    background-color: lightgray; 
     border-left: 8px solid red;
     border-right: 8px solid red;
     border-radius: 10%;
@@ -68,11 +64,8 @@
 
 </style>
 </head>
-
 <body>
-
-<p id='info'>DD</p>
-
+<p id='info'></p>
 
 <script>
 const url = 'https://api.sampleapis.com/wines/reds'
@@ -94,18 +87,9 @@ const manipulateData = (inData)=> {
  </div>
  `
  )
-
 })
-
 document.getElementById("info").innerHTML = newArr.join('')
-
 }
-
-
 </script>
-
-<p>The original image was smiley.gif, but the script changed it to landscape.jpg</p>
-
-<button onclick="changeIt()">change pic</button>
 </body>
 </html>
