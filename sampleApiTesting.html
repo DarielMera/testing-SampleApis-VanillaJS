@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+<style>
+
+#content {
+	display: inline-flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 4px;
+    margin: 20px;
+    padding: 24px;
+    background-color: rgba(233,224,125, .5);
+    box-shadow: gray 2px 2px 1px 12px;    
+	}
+
+
+#id {      
+    font-size: 1.2em;   
+	}
+
+#idWrap {
+	 display: flex;
+     flex-direction: horizontal;
+     justify-content: center;
+     align-items: center;
+     border-left: 8px solid red;
+     border-right: 8px solid red;
+     width: 70px;
+     height: 70px;
+     border-radius: 50%;       
+	}
+
+#wn {
+	font-size: 1em;
+	background-color: lightgray;  
+    border-left: 8px solid red;
+    border-right: 8px solid red;
+    border-radius: 10%;
+    width: 200px;
+    height: auto;
+    padding: 18px;
+    text-align: center;
+	}
+
+#im {
+    border-bottom: 8px solid red;
+    border-radius: 4px;
+    width: 120px;
+    height: 250px;    
+	}
+
+
+#rt {
+    font-size: 1em;
+	background-color: lightgray; 
+    border-left: 8px solid red;
+    border-right: 8px solid red;
+    border-radius: 10%;
+    width: autopx;
+    height: auto;
+    padding: 18px;
+    text-align: center;        
+	}
+
+</style>
+</head>
+
+<body>
+
+<p id='info'>DD</p>
+
+
+<script>
+const url = 'https://api.sampleapis.com/wines/reds'
+
+fetch(url)
+.then(data => data.json())
+.then(finalRes => manipulateData(finalRes))
+
+const manipulateData = (inData)=> {
+ newArr = inData.map(({id,wine,image, rating:{ average }})=> {
+
+ return (
+ `
+ <div id='content'>
+ <div id='idWrap'><div id='id'>ID: ${id}</div></div>
+ <h2  id='wn'>Wine: ${wine}</h2>
+ <img id='im' src=${image} alt='wine' />
+ <p id='rt'>Rating: ${average}</p>
+ </div>
+ `
+ )
+
+})
+
+document.getElementById("info").innerHTML = newArr.join('')
+
+}
+
+
+</script>
+
+<p>The original image was smiley.gif, but the script changed it to landscape.jpg</p>
+
+<button onclick="changeIt()">change pic</button>
+</body>
+</html>
